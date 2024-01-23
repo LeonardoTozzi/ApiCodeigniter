@@ -30,10 +30,10 @@ class ApiController extends BaseController
     if ($response->getStatusCode() === 200) {
 
         // Retorna os dados atualizados na resposta da API
-        return 'Usuário atualizado com sucesso: ';
+        return json_encode(['message' => 'Usuario atualizado com sucesso']);
     } else {
         // Se a requisição não foi bem-sucedida, retorne uma resposta de err     
-        echo 'Falha ao atualizar usuário: ';
+        return json_encode(['message' => 'Falha ao atualizar o usuario']);
     }
 }
  public function deleteUser()
@@ -48,10 +48,10 @@ class ApiController extends BaseController
     if ($response->getStatusCode() === 200) {
 
         // Retorna os dados atualizados na resposta da API
-        return 'Usuário deletado com sucesso: ';
+        return json_encode(['message' => 'Usuario deletado com sucesso']);
     } else {
         // Se a requisição não foi bem-sucedida, retorne uma resposta de err     
-        echo 'Falha ao deletar usuário: ';
+        return json_encode(['message' => 'Falha ao deletar usuario']);
     }
  }
 
@@ -83,13 +83,13 @@ class ApiController extends BaseController
             ]
         ]
     ]);
-      // Verifica se a requisição foi bem-sucedida (código de status 201 - Created)
-      if ($response->getStatusCode() === 201) {
-        // Retorna uma mensagem de sucesso
-        return 'Usuário criado com sucesso';
+       // Verifica se a requisição foi bem-sucedida (código de status 201 - Created)
+    if ($response->getStatusCode() === 201) {
+        // Retorna uma mensagem de sucesso em formato JSON
+        return json_encode(['message' => 'Usuario criado com sucesso']);
     } else {
-        // Se a requisição não foi bem-sucedida, retorne uma resposta de erro
-        return 'Falha ao criar usuário';
+        // Se a requisição não foi bem-sucedida, retorna uma mensagem de erro em formato JSON
+        return json_encode(['message' => 'Falha ao criar usuário']);
     }
 }
 }
